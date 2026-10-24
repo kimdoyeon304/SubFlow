@@ -1,3 +1,17 @@
 spring:
   application:
     name: subflow
+  datasource:
+    url: jdbc:postgresql://localhost:5432/subflow
+    username: sfadmin
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate       # 자동으로 DB를 바꾸지 않는다
+    open-in-view: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
